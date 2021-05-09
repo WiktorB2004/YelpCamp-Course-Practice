@@ -1,5 +1,5 @@
-const Campground = require("../models/Campground");
-const Review = require("../models/Review");
+const Campground = require("../models/campground");
+const Review = require("../models/review");
 
 module.exports.createReview = async (req, res) => {
   const campground = await Campground.findById(req.params.id);
