@@ -1,4 +1,5 @@
-const MongoDBStore = require("connect-mongo");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongo")(session);
 const secret = process.env.SECRET || "thisshouldbeabettersecret!";
 const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/yelp-camp";
 
