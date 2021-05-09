@@ -31,11 +31,14 @@ mongoose.connect(dbUrl, {
   useFindAndModify: false,
 });
 
-const db = mongoose.connection;
-db.on("error", console.log.bind(console, "connection error:"));
-db.once("open", () => {
-  console.log("Databse connected");
-});
+const connection = mongoose.connection;
+connection
+  .once("open", () => {
+    console.log("mongoDB database connection established");
+  })
+  .on("error", (err) => {
+    console.log("Error: ", err);
+  });
 
 const app = express();
 
