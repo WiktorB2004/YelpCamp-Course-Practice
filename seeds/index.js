@@ -21,16 +21,32 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
     await Campground.deleteMany({});
-    const c = new Campground({title: 'purple field'});
-    for(let i = 0; i < 50; i++){
+    for(let i = 0; i < 200; i++){
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
+            author: '6051123249e377509898f039', 
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: 'https://source.unsplash.com/collection/483251',
             description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim similique nam fugiat magni odio corrupti est quisquam laudantium hic, quibusdam id modi eius necessitatibus, qui quasi odit ipsa, molestiae ducimus.',
-            price: price
+            price: price,
+            geometry: {
+                type: "Point",
+                coordinates: [
+                    cities[random1000].longitude, 
+                    cities[random1000].latitude
+                ]
+            },
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dewrq9fc8/image/upload/v1616453496/YelpCamp/m6rqnbdliyzrgwdfb5p3.jpg',
+                    filename: 'YelpCamp/m6rqnbdliyzrgwdfb5p3'
+                },
+                 {
+                    url: 'https://res.cloudinary.com/dewrq9fc8/image/upload/v1616453496/YelpCamp/ghaiw3fll5c0vyvusjkm.jpg',
+                    filename: 'YelpCamp/ghaiw3fll5c0vyvusjkm'
+                }
+            ]
         });
         await camp.save();
     }
