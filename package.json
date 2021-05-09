@@ -1,7 +1,7 @@
 {
   "name": "yelpcamp",
   "version": "1.0.0",
-  "description": "",
+  "description": "YelpCamp Project",
   "main": "app.js",
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.12.1",
@@ -33,5 +33,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "14.15.5"
+  }
 }
