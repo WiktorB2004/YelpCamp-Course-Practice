@@ -1,17 +1,17 @@
 <% layout('layouts/boilerplate') %>
-<div id="cluster-map"></div>
-<h1>All Campgrounds</h1>
+<div id="cluster-map" class="shadow"></div>
+<h1 class="text-white text-center index-heading">All Campgrounds</h1>
 <% for(let campground of campgrounds) { %>
-<div class="card mb-3">
-  <div class="row">
+<div class="card mb-3 bg-dark text-white shadow-lg body-rounded">
+  <div class="row p-2">
     <div class="col-md-4">
-      <% if(campground.images.length) { %> <img class="img-fluid" / src="<%= campground.images[0].url%>" alt="" > <% } else { %>
+      <% if(campground.images.length) { %> <img class="img-fluid shadow body-rounded" / src="<%= campground.images[0].url%>" alt="" > <% } else { %>
       <img src="https://res.cloudinary.com/dewrq9fc8/image/upload/v1616543717/YelpCamp/sg3skt9a6mmi7ooxpjbq.jpg" alt="" class="imgfluid" /> <% } %>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
+    <div class="col-md-8 text-center">
+      <div class="card-body index-card">
         <h5 class="card-title"><%= campground.title %></h5>
-        <p class="card-text"><%= campground.description %></p>
+        <p class="card-text m-0"><%= campground.description.substring(0,300) %>...</p>
         <p class="card-text"><small class="text-muted"><%= campground.location %></small></p>
         <a href="/campgrounds/<%= campground._id%>" class="btn btn-primary">View <%= campground.title %> </a>
       </div>
